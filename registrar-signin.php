@@ -1,220 +1,222 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Universal University</title>
 
-<style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Segoe UI", Arial, sans-serif;
-    }
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Arial, sans-serif;
+        }
 
-    body {
-        height: 100vh;
-    }
-
-
-    .container {
-        display: flex;
-        height: 100vh;
-    }
+        body {
+            height: 100vh;
+        }
 
 
-    .image-section {
-        position: relative;
-        width: 60%;
-        height: 100vh;
-        overflow: hidden;
-    }
-
-    .slide {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        opacity: 0;
-        transform: scale(1.05);
-        transition: opacity 1s ease, transform 1s ease;
-    }
-
-    .slide.active {
-        opacity: 1;
-        transform: scale(1);
-    }
+        .container {
+            display: flex;
+            height: 100vh;
+        }
 
 
-    .dots {
-        position: absolute;
-        bottom: 30px;
-        left: 50%;
-        transform: translateX(-50%);
-        display: flex;
-        gap: 12px;
-    }
+        .image-section {
+            position: relative;
+            width: 60%;
+            height: 100vh;
+            overflow: hidden;
+        }
 
-    .dot {
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.5);
-    }
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transform: scale(1.05);
+            transition: opacity 1s ease, transform 1s ease;
+        }
 
-    .dot.active {
-        background: #fff;
-        transform: scale(1.4);
-    }
-
-
-    .content-section {
-        width: 40%;
-        background-color: #e6d7bd;
-        padding: 40px;
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+        .slide.active {
+            opacity: 1;
+            transform: scale(1);
+        }
 
 
-    .header {
-        position: absolute;
-        top: 30px;
-        left: 40px;
-        font-size: 20px;
-    }
+        .dots {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .dot.active {
+            background: #fff;
+            transform: scale(1.4);
+        }
 
 
-    .back-btn {
-        position: absolute;
-        top: 25px;
-        right: 40px;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        border: 2px solid #6b3b36;
-        background: transparent;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .back-btn img {
-        width: 50px;
-    }
-
-    .login-box {
-        text-align: center;
-        width: 100%;
-        max-width: 320px;
-    }
+        .content-section {
+            width: 40%;
+            background-color: #e6d7bd;
+            padding: 40px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
 
-    .user-icon {
-        width: 200px;
-        margin-bottom: 10px;
-    }
+        .header {
+            position: absolute;
+            top: 30px;
+            left: 40px;
+            font-size: 20px;
+        }
 
 
-    .login-box h1 {
-        font-size: 30px;
-        font-weight: 500;
-        margin-bottom: 8px;
-    }
+        .back-btn {
+            position: absolute;
+            top: 25px;
+            right: 40px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid #6b3b36;
+            background: transparent;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-    .login-box p {
-        margin-bottom: 40px;
-    }
+        .back-btn img {
+            width: 50px;
+        }
+
+        .login-box {
+            text-align: center;
+            width: 100%;
+            max-width: 320px;
+        }
 
 
-    .login-box input {
-        width: 100%;
-        padding: 10px;
-        font-size: 16px;
-        margin-bottom: 25px;
-        border: 1px solid #999;
-    }
+        .user-icon {
+            width: 200px;
+            margin-bottom: 10px;
+        }
 
 
-    .login-box button {
-        background-color: #6b3b36;
-        color: white;
-        border: none;
-        padding: 10px;
-        width: 140px;
-        font-size: 16px;
-        cursor: pointer;
-        border-radius: 4px;
-        transition: background 0.3s ease;
-    }
+        .login-box h1 {
+            font-size: 30px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
 
-    .login-box button:hover {
-        background-color: #552e2a;
-    }
-</style>
+        .login-box p {
+            margin-bottom: 40px;
+        }
+
+
+        .login-box input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 25px;
+            border: 1px solid #999;
+        }
+
+
+        .login-box button {
+            background-color: #6b3b36;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 140px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background 0.3s ease;
+        }
+
+        .login-box button:hover {
+            background-color: #552e2a;
+        }
+    </style>
 </head>
 
 <body>
 
-<div class="container">
+    <div class="container">
 
-    <div class="image-section">
-        <img class="slide active" src="Assets/university.png">
-        <img class="slide" src="Assets/students.png">
-        <img class="slide" src="Assets/students2.png">
+        <div class="image-section">
+            <img class="slide active" src="Assets/university.png">
+            <img class="slide" src="Assets/students.png">
+            <img class="slide" src="Assets/students2.png">
 
-        <div class="dots">
-            <span class="dot active"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-        </div>
-    </div>
-
-    <div class="content-section">
-
-        <div class="header">Hello Registrar,</div>
-
-    <a href="homepage.php">
-        <button class="back-btn">
-            <img src="Assets/back.png" alt="Back">
-        </button>
-    </a>
-
-
-        <div class="login-box">
-            <img class="user-icon" src="Assets/registrar.png" alt="Student Icon">
-
-            <h1>Universal University</h1>
-            <p>Sign in to start</p>
-
-            <input type="text" placeholder="Registrar ID Number">
-            <button>Sign In</button>
+            <div class="dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
         </div>
 
+        <div class="content-section">
+
+            <div class="header">Hello Registrar,</div>
+
+            <a href="homepage.php">
+                <button class="back-btn">
+                    <img src="Assets/back.png" alt="Back">
+                </button>
+            </a>
+
+
+            <div class="login-box">
+                <img class="user-icon" src="Assets/registrar.png" alt="Student Icon">
+
+                <h1>Universal University</h1>
+                <p>Sign in to start</p>
+
+                <input type="text" placeholder="Registrar ID Number">
+                <button>Sign In</button>
+            </div>
+
+        </div>
+
     </div>
 
-</div>
+    <script>
+        const slides = document.querySelectorAll(".slide");
+        const dots = document.querySelectorAll(".dot");
+        let currentIndex = 0;
 
-<script>
-const slides = document.querySelectorAll(".slide");
-const dots = document.querySelectorAll(".dot");
-let currentIndex = 0;
+        function showSlide(index) {
+            slides.forEach(s => s.classList.remove("active"));
+            dots.forEach(d => d.classList.remove("active"));
+            slides[index].classList.add("active");
+            dots[index].classList.add("active");
+            currentIndex = index;
+        }
 
-function showSlide(index) {
-    slides.forEach(s => s.classList.remove("active"));
-    dots.forEach(d => d.classList.remove("active"));
-    slides[index].classList.add("active");
-    dots[index].classList.add("active");
-    currentIndex = index;
-}
-
-setInterval(() => {
-    showSlide((currentIndex + 1) % slides.length);
-}, 4000);
-</script>
+        setInterval(() => {
+            showSlide((currentIndex + 1) % slides.length);
+        }, 4000);
+    </script>
 
 </body>
+
 </html>
